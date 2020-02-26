@@ -1,0 +1,448 @@
+***Model Definition---
+ID = and
+Name = Created by iBioSim flatten routine
+Substance Units = mole
+Time Units = 
+Volume Units = litre
+Area Units = 
+Length Units = 
+Extent Units = 
+Conversion Factor = 
+Model Components:
+listOfUnitDefinitions
+listOfCompartments
+listOfSpecies
+listOfParameters
+listOfReactions
+listOfEvents
+---End of Model Definition---
+
+
+***Unit Definitions---
+2
+ID = u_1_second_n1
+Val = s^(-1)
+Kind = SECOND
+Name = 
+ID = u_1_mole_n1
+Val = mol^(-1)
+Kind = MOLE
+Name = 
+---End of Units Definition---
+
+***Compartment Definitions---
+1
+ID = Cell
+Name = 
+Spatial Dimensions = 3.0
+Size = 1.0
+Unit = 
+Constant = true
+---End of Compartment Definition---
+
+***Species Definitions---
+9
+ID = CI
+Name = 
+Compartment = Cell
+Initial Amount = 0.0
+Initial Concentration = NaN
+Substance Units = 
+OnlySubstanceUnits = true
+Boundary Condition = false
+Constant = false
+Conversion Factor = null
+
+ID = GFP
+Name = 
+Compartment = Cell
+Initial Amount = 0.0
+Initial Concentration = NaN
+Substance Units = 
+OnlySubstanceUnits = true
+Boundary Condition = false
+Constant = false
+Conversion Factor = null
+
+ID = LacI
+Name = 
+Compartment = Cell
+Initial Amount = 0.0
+Initial Concentration = NaN
+Substance Units = 
+OnlySubstanceUnits = true
+Boundary Condition = true
+Constant = false
+Conversion Factor = null
+
+ID = TetR
+Name = 
+Compartment = Cell
+Initial Amount = 0.0
+Initial Concentration = NaN
+Substance Units = 
+OnlySubstanceUnits = true
+Boundary Condition = true
+Constant = false
+Conversion Factor = null
+
+ID = Promoter_GFP
+Name = 
+Compartment = Cell
+Initial Amount = 2.0
+Initial Concentration = NaN
+Substance Units = 
+OnlySubstanceUnits = true
+Boundary Condition = false
+Constant = false
+Conversion Factor = null
+
+ID = P1
+Name = 
+Compartment = Cell
+Initial Amount = 4.0
+Initial Concentration = NaN
+Substance Units = 
+OnlySubstanceUnits = true
+Boundary Condition = false
+Constant = false
+Conversion Factor = null
+
+ID = P3
+Name = 
+Compartment = Cell
+Initial Amount = 2.0
+Initial Concentration = NaN
+Substance Units = 
+OnlySubstanceUnits = true
+Boundary Condition = false
+Constant = false
+Conversion Factor = null
+
+ID = P3_mRNA
+Name = 
+Compartment = Cell
+Initial Amount = 0.0
+Initial Concentration = NaN
+Substance Units = 
+OnlySubstanceUnits = true
+Boundary Condition = false
+Constant = false
+Conversion Factor = null
+
+ID = P2
+Name = 
+Compartment = Cell
+Initial Amount = 2.0
+Initial Concentration = NaN
+Substance Units = 
+OnlySubstanceUnits = true
+Boundary Condition = false
+Constant = false
+Conversion Factor = null
+
+---End of Species Definition---
+
+***Parameters Definitions---
+25
+ID = ko_r
+Name = Reverse RNAP binding rate
+Value = 1.0
+Units = 
+Constant = true
+
+ID = nr
+Name = Initial RNAP count
+Value = 30.0
+Units = 
+Constant = true
+
+ID = np
+Name = Stoichiometry of production
+Value = 10.0
+Units = 
+Constant = true
+
+ID = kr_r
+Name = Reverse repression binding rate
+Value = 1.0
+Units = 
+Constant = true
+
+ID = ka_f
+Name = Forward activation binding rate
+Value = 0.0033
+Units = 
+Constant = true
+
+ID = kecdiff
+Name = Extracellular diffusion rate
+Value = 1.0
+Units = 
+Constant = true
+
+ID = ko
+Name = Open complex production rate
+Value = 0.05
+Units = 
+Constant = true
+
+ID = kmdiff_f
+Name = Forward membrane diffusion rate
+Value = 1.0
+Units = 
+Constant = true
+
+ID = kecd
+Name = Extracellular degradation rate
+Value = 0.005
+Units = 
+Constant = true
+
+ID = kc_r
+Name = Reverse complex formation rate
+Value = 1.0
+Units = 
+Constant = true
+
+ID = kr_f
+Name = Forward repression binding rate
+Value = 0.5
+Units = 
+Constant = true
+
+ID = ka_r
+Name = Reverse activation binding rate
+Value = 1.0
+Units = 
+Constant = true
+
+ID = nc
+Name = Stoichiometry of binding
+Value = 2.0
+Units = 
+Constant = true
+
+ID = kao_r
+Name = Reverse activated RNAP binding rate
+Value = 1.0
+Units = 
+Constant = true
+
+ID = kd
+Name = Degradation rate
+Value = 0.0075
+Units = 
+Constant = true
+
+ID = kb
+Name = Basal production rate
+Value = 1.0E-4
+Units = 
+Constant = true
+
+ID = ng
+Name = Initial promoter count
+Value = 2.0
+Units = 
+Constant = true
+
+ID = ka
+Name = Activated production rate
+Value = 0.255
+Units = 
+Constant = true
+
+ID = kao_f
+Name = Forward activated RNAP binding rate
+Value = 1.0
+Units = 
+Constant = true
+
+ID = kmdiff_r
+Name = Reverse membrane diffusion rate
+Value = 0.01
+Units = 
+Constant = true
+
+ID = ko_f
+Name = Forward RNAP binding rate
+Value = 0.033
+Units = 
+Constant = true
+
+ID = kc_f
+Name = Forward complex formation rate
+Value = 0.05
+Units = 
+Constant = true
+
+ID = High
+Name = 
+Value = 60.0
+Units = 
+Constant = true
+
+ID = HighTime
+Name = 
+Value = 2000.0
+Units = 
+Constant = true
+
+ID = HighTime2
+Name = 
+Value = 4000.0
+Units = 
+Constant = true
+
+---End of Parameters Definition---
+
+
+
+
+***Reactions---
+7
+ID = Degradation_GFP
+Name = 
+Reversible = false
+Fast = false
+Compartment = Cell
+Reactants: 1 = GFP
+Reac Stoichiometry = 1.0
+R-Constant = true
+Products: 0 = 
+Prod Stoichiometry = 
+P-Constant = 
+Modifiers:0 = 
+Local Parameters: 1 = kd
+Local Parameter Values = 0.0075
+Math = kd*GFP
+
+ID = Degradation_CI
+Name = 
+Reversible = false
+Fast = false
+Compartment = Cell
+Reactants: 1 = CI
+Reac Stoichiometry = 1.0
+R-Constant = true
+Products: 0 = 
+Prod Stoichiometry = 
+P-Constant = 
+Modifiers:0 = 
+Local Parameters: 1 = kd
+Local Parameter Values = 0.0075
+Math = kd*CI
+
+ID = Degradation_TetR
+Name = 
+Reversible = false
+Fast = false
+Compartment = Cell
+Reactants: 1 = TetR
+Reac Stoichiometry = 1.0
+R-Constant = true
+Products: 0 = 
+Prod Stoichiometry = 
+P-Constant = 
+Modifiers:0 = 
+Local Parameters: 1 = kd
+Local Parameter Values = 0.0075
+Math = kd*TetR
+
+ID = Degradation_LacI
+Name = 
+Reversible = false
+Fast = false
+Compartment = Cell
+Reactants: 1 = LacI
+Reac Stoichiometry = 1.0
+R-Constant = true
+Products: 0 = 
+Prod Stoichiometry = 
+P-Constant = 
+Modifiers:0 = 
+Local Parameters: 1 = kd
+Local Parameter Values = 0.0075
+Math = kd*LacI
+
+ID = R_abstracted_production_P1
+Name = 
+Reversible = false
+Fast = false
+Compartment = Cell
+Reactants: 0 = 
+Reac Stoichiometry = 
+R-Constant = 
+Products: 1 = CI
+Prod Stoichiometry = 10.0
+P-Constant = true
+Modifiers:1 = LacI
+Local Parameters: 6 = RNAP, ng__P1, Ko__P1, ko__P1, nc__LacI_P1, Kr__LacI_P1
+Local Parameter Values = 30.0, 4.0, 0.033, 0.05, 2.0, 0.5
+Math = ko__P1*ng__P1*Ko__P1*RNAP/(1+Ko__P1*RNAP+(Kr__LacI_P1*LacI)^nc__LacI_P1)
+
+ID = R_abstracted_production_P2
+Name = 
+Reversible = false
+Fast = false
+Compartment = Cell
+Reactants: 0 = 
+Reac Stoichiometry = 
+R-Constant = 
+Products: 1 = CI
+Prod Stoichiometry = 10.0
+P-Constant = true
+Modifiers:1 = TetR
+Local Parameters: 6 = RNAP, ng__P2, Ko__P2, ko__P2, nc__TetR_P2, Kr__TetR_P2
+Local Parameter Values = 30.0, 2.0, 0.033, 0.05, 2.0, 0.5
+Math = ko__P2*ng__P2*Ko__P2*RNAP/(1+Ko__P2*RNAP+(Kr__TetR_P2*TetR)^nc__TetR_P2)
+
+ID = R_abstracted_production_Promoter_GFP
+Name = 
+Reversible = false
+Fast = false
+Compartment = Cell
+Reactants: 0 = 
+Reac Stoichiometry = 
+R-Constant = 
+Products: 1 = GFP
+Prod Stoichiometry = 10.0
+P-Constant = true
+Modifiers:1 = CI
+Local Parameters: 6 = RNAP, ng__Promoter_GFP, Ko__Promoter_GFP, ko__Promoter_GFP, nc__CI_Promoter_GFP, Kr__CI_Promoter_GFP
+Local Parameter Values = 30.0, 2.0, 0.033, 0.05, 2.0, 0.5
+Math = ko__Promoter_GFP*ng__Promoter_GFP*Ko__Promoter_GFP*RNAP/(1+Ko__Promoter_GFP*RNAP+(Kr__CI_Promoter_GFP*CI)^nc__CI_Promoter_GFP)
+
+---End of Reactions Definition---
+
+***Event Definitions---
+2
+ID = event0
+Priority = null
+UserValueFromTriggerTime = true
+Trigger Persistent = true
+Trigger InitAssign = true
+Trigger Math: t >= HighTime
+Delay Math: null
+Assignment: TetR = High
+ID = event1
+Priority = null
+UserValueFromTriggerTime = true
+Trigger Persistent = true
+Trigger InitAssign = true
+Trigger Math: t >= HighTime2
+Delay Math: null
+Assignment: LacI = High
+---End of Events Definition---
+
+ExtractModStart
+ModCnt:2
+ID:LacI
+ID:TetR
+
+Idx:2
+Idx:8
+
+ExtractModEnd
+

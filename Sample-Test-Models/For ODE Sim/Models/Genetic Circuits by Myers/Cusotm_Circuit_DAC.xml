@@ -1,0 +1,330 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" level="3" version="1">
+  <model name="Created by iBioSim flatten routine" volumeUnits="litre" id="Cusotm_Circuit" substanceUnits="mole" metaid="iBioSim38">
+    <listOfUnitDefinitions>
+      <unitDefinition id="u_1_second_n1">
+        <listOfUnits>
+          <unit scale="0" kind="second" multiplier="1" exponent="-1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="u_1_mole_n1">
+        <listOfUnits>
+          <unit scale="0" kind="mole" multiplier="1" exponent="-1"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment constant="true" id="Cell" size="1" spatialDimensions="3"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species boundaryCondition="true" constant="false" metaid="iBioSim1" hasOnlySubstanceUnits="true" initialAmount="0" compartment="Cell" id="LacI"/>
+      <species boundaryCondition="false" constant="false" metaid="iBioSim3" hasOnlySubstanceUnits="true" initialAmount="0" compartment="Cell" id="TetR"/>
+      <species boundaryCondition="false" constant="false" metaid="iBioSim4" hasOnlySubstanceUnits="true" initialAmount="0" compartment="Cell" id="Cro"/>
+      <species boundaryCondition="false" constant="false" metaid="iBioSim5" hasOnlySubstanceUnits="true" initialAmount="0" compartment="Cell" id="GFP"/>
+      <species boundaryCondition="false" constant="false" metaid="iBioSim11" hasOnlySubstanceUnits="true" initialAmount="2" sboTerm="SBO:0000590" compartment="Cell" id="P0"/>
+      <species boundaryCondition="false" constant="false" metaid="iBioSim14" hasOnlySubstanceUnits="true" initialAmount="2" sboTerm="SBO:0000590" compartment="Cell" id="P1"/>
+      <species boundaryCondition="false" constant="false" metaid="iBioSim17" hasOnlySubstanceUnits="true" initialAmount="2" sboTerm="SBO:0000590" compartment="Cell" id="P2"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter name="Degradation rate" constant="true" id="kd" metaid="iBioSim2" value="0.0075"/>
+      <parameter name="Forward repression binding rate" constant="true" id="kr_f" metaid="iBioSim6" value="0.5"/>
+      <parameter name="Reverse repression binding rate" constant="true" id="kr_r" metaid="iBioSim15" value="1"/>
+      <parameter name="Forward activation binding rate" constant="true" id="ka_f" metaid="iBioSim18" value="0.0033"/>
+      <parameter name="Reverse activation binding rate" constant="true" id="ka_r" metaid="iBioSim20" value="1"/>
+      <parameter name="Forward RNAP binding rate" constant="true" id="ko_f" metaid="iBioSim21" value="0.033"/>
+      <parameter name="Reverse RNAP binding rate" constant="true" id="ko_r" metaid="iBioSim22" value="1"/>
+      <parameter name="Forward activated RNAP binding rate" constant="true" id="kao_f" metaid="iBioSim23" value="1"/>
+      <parameter name="Reverse activated RNAP binding rate" constant="true" id="kao_r" metaid="iBioSim24" value="1"/>
+      <parameter name="Stoichiometry of binding" constant="true" id="nc" metaid="iBioSim25" value="2"/>
+      <parameter name="Initial RNAP count" constant="true" id="nr" metaid="iBioSim26" value="30"/>
+      <parameter name="Open complex production rate" constant="true" id="ko" metaid="iBioSim27" value="0.05"/>
+      <parameter name="Basal production rate" constant="true" id="kb" metaid="iBioSim28" value="0.0001"/>
+      <parameter name="Initial promoter count" constant="true" id="ng" metaid="iBioSim29" value="2"/>
+      <parameter name="Stoichiometry of production" constant="true" id="np" metaid="iBioSim30" value="10"/>
+      <parameter name="Activated production rate" constant="true" id="ka" metaid="iBioSim31" value="0.25"/>
+      <parameter constant="true" id="High" metaid="iBioSim32" value="30"/>
+      <parameter constant="true" id="HighTime" metaid="iBioSim33" value="1000"/>
+      <parameter constant="true" id="Low" metaid="iBioSim7" value="0"/>
+      <parameter constant="true" id="LowTime" metaid="iBioSim37" value="1500"/>
+    </listOfParameters>
+    <listOfReactions>
+      <reaction compartment="Cell" fast="false" id="Degradation_GFP" metaid="iBioSim8" reversible="false">
+        <listOfReactants>
+          <speciesReference stoichiometry="1" constant="true" species="GFP"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <ci> kd </ci>
+              <ci> GFP </ci>
+            </apply>
+          </math>
+                  <listOfLocalParameters>
+            <localParameter id="kd" units="u_1_second_n1" value="0.0075"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction compartment="Cell" fast="false" id="Degradation_Cro" metaid="iBioSim9" reversible="false">
+        <listOfReactants>
+          <speciesReference stoichiometry="1" constant="true" species="Cro"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <ci> kd </ci>
+              <ci> Cro </ci>
+            </apply>
+          </math>
+                  <listOfLocalParameters>
+            <localParameter id="kd" units="u_1_second_n1" value="0.0075"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction compartment="Cell" fast="false" id="Degradation_TetR" metaid="iBioSim10" reversible="false">
+        <listOfReactants>
+          <speciesReference stoichiometry="1" constant="true" species="TetR"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <ci> kd </ci>
+              <ci> TetR </ci>
+            </apply>
+          </math>
+                  <listOfLocalParameters>
+            <localParameter id="kd" units="u_1_second_n1" value="0.0075"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction compartment="Cell" fast="false" id="Degradation_LacI" metaid="iBioSim13" reversible="false">
+        <listOfReactants>
+          <speciesReference stoichiometry="1" constant="true" species="LacI"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <times/>
+              <ci> kd </ci>
+              <ci> LacI </ci>
+            </apply>
+          </math>
+                  <listOfLocalParameters>
+            <localParameter id="kd" units="u_1_second_n1" value="0.0075"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction compartment="Cell" fast="false" id="R_abstracted_production_P0" metaid="iBioSim16" reversible="false">
+        <listOfProducts>
+          <speciesReference stoichiometry="10" constant="true" species="TetR"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="LacI"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <apply>
+                  <times/>
+                  <ci> ko__P0 </ci>
+                  <ci> ng__P0 </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> Ko__P0 </ci>
+                  <ci> RNAP </ci>
+                </apply>
+              </apply>
+              <apply>
+                <plus/>
+                <apply>
+                  <plus/>
+                  <cn type="integer"> 1 </cn>
+                  <apply>
+                    <times/>
+                    <ci> Ko__P0 </ci>
+                    <ci> RNAP </ci>
+                  </apply>
+                </apply>
+                <apply>
+                  <power/>
+                  <apply>
+                    <times/>
+                    <ci> Kr__LacI_P0 </ci>
+                    <ci> LacI </ci>
+                  </apply>
+                  <ci> nc__LacI_P0 </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+                  <listOfLocalParameters>
+            <localParameter id="RNAP" units="u_1_mole_n1" value="30"/>
+            <localParameter id="ng__P0" units="u_1_mole_n1" value="2"/>
+            <localParameter id="Ko__P0" units="u_1_mole_n1" value="0.033"/>
+            <localParameter id="ko__P0" units="u_1_second_n1" value="0.05"/>
+            <localParameter id="nc__LacI_P0" units="dimensionless" value="2"/>
+            <localParameter id="Kr__LacI_P0" units="u_1_mole_n1" value="0.5"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction compartment="Cell" fast="false" id="R_abstracted_production_P1" metaid="iBioSim19" reversible="false">
+        <listOfProducts>
+          <speciesReference stoichiometry="10" constant="true" species="Cro"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="TetR"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <apply>
+                  <times/>
+                  <ci> ko__P1 </ci>
+                  <ci> ng__P1 </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> Ko__P1 </ci>
+                  <ci> RNAP </ci>
+                </apply>
+              </apply>
+              <apply>
+                <plus/>
+                <apply>
+                  <plus/>
+                  <cn type="integer"> 1 </cn>
+                  <apply>
+                    <times/>
+                    <ci> Ko__P1 </ci>
+                    <ci> RNAP </ci>
+                  </apply>
+                </apply>
+                <apply>
+                  <power/>
+                  <apply>
+                    <times/>
+                    <ci> Kr__TetR_P1 </ci>
+                    <ci> TetR </ci>
+                  </apply>
+                  <ci> nc__TetR_P1 </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+                  <listOfLocalParameters>
+            <localParameter id="RNAP" units="u_1_mole_n1" value="30"/>
+            <localParameter id="ng__P1" units="u_1_mole_n1" value="2"/>
+            <localParameter id="Ko__P1" units="u_1_mole_n1" value="0.033"/>
+            <localParameter id="ko__P1" units="u_1_second_n1" value="0.05"/>
+            <localParameter id="nc__TetR_P1" units="dimensionless" value="2"/>
+            <localParameter id="Kr__TetR_P1" units="u_1_mole_n1" value="0.5"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction compartment="Cell" fast="false" id="R_abstracted_production_P2" metaid="iBioSim34" reversible="false">
+        <listOfProducts>
+          <speciesReference stoichiometry="10" constant="true" species="GFP"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="Cro"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <apply>
+                  <times/>
+                  <ci> ko__P2 </ci>
+                  <ci> ng__P2 </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> Ko__P2 </ci>
+                  <ci> RNAP </ci>
+                </apply>
+              </apply>
+              <apply>
+                <plus/>
+                <apply>
+                  <plus/>
+                  <cn type="integer"> 1 </cn>
+                  <apply>
+                    <times/>
+                    <ci> Ko__P2 </ci>
+                    <ci> RNAP </ci>
+                  </apply>
+                </apply>
+                <apply>
+                  <power/>
+                  <apply>
+                    <times/>
+                    <ci> Kr__Cro_P2 </ci>
+                    <ci> Cro </ci>
+                  </apply>
+                  <ci> nc__Cro_P2 </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+                  <listOfLocalParameters>
+            <localParameter id="RNAP" units="u_1_mole_n1" value="30"/>
+            <localParameter id="ng__P2" units="u_1_mole_n1" value="2"/>
+            <localParameter id="Ko__P2" units="u_1_mole_n1" value="0.033"/>
+            <localParameter id="ko__P2" units="u_1_second_n1" value="0.05"/>
+            <localParameter id="nc__Cro_P2" units="dimensionless" value="2"/>
+            <localParameter id="Kr__Cro_P2" units="u_1_mole_n1" value="0.5"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+    <listOfEvents>
+      <event id="event0" metaid="iBioSim12" useValuesFromTriggerTime="true">
+        <trigger persistent="false" initialValue="true">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <geq/>
+              <csymbol encoding="text" definitionURL="http://www.sbml.org/sbml/symbols/time"> t </csymbol>
+              <ci> HighTime </ci>
+            </apply>
+          </math>
+                </trigger>
+        <listOfEventAssignments>
+          <eventAssignment variable="LacI">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <ci> High </ci>
+            </math>
+                    </eventAssignment>
+        </listOfEventAssignments>
+      </event>
+      <event id="event1" metaid="iBioSim35" useValuesFromTriggerTime="true">
+        <trigger persistent="false" initialValue="true">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">          
+            <apply>
+              <geq/>
+              <csymbol encoding="text" definitionURL="http://www.sbml.org/sbml/symbols/time"> t </csymbol>
+              <ci> LowTime </ci>
+            </apply>
+          </math>
+                </trigger>
+        <listOfEventAssignments>
+          <eventAssignment variable="LacI">
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <ci> Low </ci>
+            </math>
+                    </eventAssignment>
+        </listOfEventAssignments>
+      </event>
+    </listOfEvents>
+  </model>
+</sbml>
